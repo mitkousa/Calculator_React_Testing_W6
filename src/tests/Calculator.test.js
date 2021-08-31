@@ -17,5 +17,20 @@ describe('Calculator', () => {
     button4.simulate('click');
     expect(runningTotal.text()).toEqual('4');
   })
+
+  it(`calculator adds two numbers`, () => {
+    const button1 = container.find('#number1');
+    const button4 = container.find('#number4');
+    const buttonAdd = container.find('#operator_add');
+    const buttonEqual = container.find('#operator-equals')
+    button1.simulate('click');
+    buttonAdd.simulate('click');
+    button4.simulate('click');
+    buttonEqual.simulate('click');
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('5');
+  })
+
+
 })
 
