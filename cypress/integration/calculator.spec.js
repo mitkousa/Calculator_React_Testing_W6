@@ -27,4 +27,14 @@ describe("Calculator", () => {
     cy.get('.display').should('contain', '6')
   })
 
+  it('output is as expected for a range of numbers', () => {
+    cy.get('#number5').click();
+    cy.get('#decimal').click();
+    cy.get('#number3').click();
+    cy.get('#operator_add').click();
+    cy.get('#number2').click();
+    cy.get('#operator-equals').click();
+    cy.get('.display').should('contain', '7.3')
+  })
+
 })
