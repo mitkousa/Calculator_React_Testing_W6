@@ -101,5 +101,21 @@ describe('Calculator', () => {
     expect(runningTotal.text()).toEqual('-4');
   })
 
+  it(`calculator can clear the running total without affecting the calculation`, () => {
+    const button2 = container.find('#number2');
+    const button4 = container.find('#number4');
+    const buttonAdd = container.find('#operator_add');
+    const buttonEqual = container.find('#operator-equals')
+    const buttonClear = container.find('#clear')
+    button2.simulate('click');
+    buttonAdd.simulate('click');
+    button4.simulate('click');
+    buttonEqual.simulate('click');
+    const runningTotal = container.find('#running-total');
+    expect(runningTotal.text()).toEqual('6');
+    buttonClear.simulate('click');
+    expect(runningTotal.text()).toEqual('0');
+  })
+
 })
 
